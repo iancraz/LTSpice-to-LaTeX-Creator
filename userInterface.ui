@@ -13,6 +13,13 @@
   <property name="windowTitle">
    <string>LTSpice to Latex Editor</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>resources/itba.jpg</normaloff>resources/itba.jpg</iconset>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -121,7 +128,7 @@ p, li { white-space: pre-wrap; }
      <rect>
       <x>30</x>
       <y>10</y>
-      <width>81</width>
+      <width>101</width>
       <height>41</height>
      </rect>
     </property>
@@ -129,7 +136,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>resources/itba.png</pixmap>
+     <pixmap>resources/Logo.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>

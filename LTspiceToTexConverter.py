@@ -46,7 +46,6 @@ def LtSpiceToLatex(saveFile = '', filenameLTspice = 'Draft.asc', lt_spice_direct
 				pin.append((int(words[1]),-int(words[2])))
 		return pin
 		
-
 	def KnotenSuche(koordinate):
 		Knoten = [idx for idx, x1 in enumerate(KnotenListe) if x1[0] == koordinate]
 		if Knoten == []:
@@ -54,7 +53,6 @@ def LtSpiceToLatex(saveFile = '', filenameLTspice = 'Draft.asc', lt_spice_direct
 			KnotenListe.append([koordinate, [], [],[]])
 		return Knoten[0]
 		
-
 	def drahtADD(befehl):
 		x1 = (int(befehl[1]) , -int(befehl[2]))
 		x2 = (int(befehl[3]) , -int(befehl[4]))
@@ -296,7 +294,6 @@ def LtSpiceToLatex(saveFile = '', filenameLTspice = 'Draft.asc', lt_spice_direct
 		newLib = newLib + r'}' + '\n'
 			
 		return newLib
-
 
 	with open(filenameLTspice, "r") as f:
 		data = f.readlines()

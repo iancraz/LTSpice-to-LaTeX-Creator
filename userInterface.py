@@ -14,6 +14,10 @@ class Ui_mainWindow(object):
     def setupUi(self, mainWindow):
         mainWindow.setObjectName("mainWindow")
         mainWindow.resize(800, 600)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("resources/itba.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        mainWindow.setWindowIcon(icon)
+        mainWindow.setWindowOpacity(1.0)
         self.centralwidget = QtWidgets.QWidget(mainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -46,9 +50,9 @@ class Ui_mainWindow(object):
         self.latexTextEdit.setGeometry(QtCore.QRect(50, 230, 721, 321))
         self.latexTextEdit.setObjectName("latexTextEdit")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(30, 10, 81, 41))
+        self.label_3.setGeometry(QtCore.QRect(30, 10, 101, 41))
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("resources/itba.png"))
+        self.label_3.setPixmap(QtGui.QPixmap("resources/Logo.png"))
         self.label_3.setScaledContents(True)
         self.label_3.setObjectName("label_3")
         mainWindow.setCentralWidget(self.centralwidget)
@@ -92,13 +96,3 @@ class Ui_mainWindow(object):
         self.actionAbout.setText(_translate("mainWindow", "About"))
         self.actionSave.setText(_translate("mainWindow", "Save"))
         self.actionSave.setShortcut(_translate("mainWindow", "Ctrl+S"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    mainWindow = QtWidgets.QMainWindow()
-    ui = Ui_mainWindow()
-    ui.setupUi(mainWindow)
-    mainWindow.show()
-    sys.exit(app.exec_())
