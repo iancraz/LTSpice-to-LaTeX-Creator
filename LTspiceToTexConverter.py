@@ -361,7 +361,7 @@ def LtSpiceToLatex(saveFile = '', filenameLTspice = 'Draft.asc', lt_spice_direct
 	#print2(KnotenListe)
 
 
-	f = open(saveFile, "w")
+	f = open(saveFile, "w+")
 
 	if fullExample:
 		f.write('\\documentclass[a4paper,12pt]{article} \n\\pagestyle{empty} \n\\usepackage{amsmath} \n\\usepackage{tikz} \n\\usepackage[siunitx,european]{circuitikz}') 
@@ -432,7 +432,10 @@ def LtSpiceToLatex(saveFile = '', filenameLTspice = 'Draft.asc', lt_spice_direct
 	f.write('\n\\end{circuitikz}')
 	if fullExample:
 		f.write('\n\\end{document}')
-		
 	f.close()
-
+	f = open(saveFile, "r")
+	temp = f.read()
+	f.close()
+	os.remove(saveFile)
 	print('Congratulations. The run was successful.')
+	return temp
