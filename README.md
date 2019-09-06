@@ -5,6 +5,7 @@ Convert LTspice to Latex (TikZ)
 1. Install Python 3
 2. Install LTspice
 3. Latex packages: tikz, circuitikz, (amsmath)
+4. Install PyQt5
  
 ## How to convert LTspice schematic to Latex TikZ picture?
 1. Double click on main.pyw
