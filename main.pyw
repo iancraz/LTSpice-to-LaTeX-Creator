@@ -44,7 +44,8 @@ class Logic(QtWidgets.QMainWindow, Ui_mainWindow):
         self.window.show()
 
     def save(self):
-        t.LtSpiceToLatex(filenameLTspice = self.lineEdit.text(), lt_spice_directory = r'C:\Users\Ian Diaz\Documents\LTspiceXVII\lib\sym',fullExample=1,save = True)
+        if self.lineEdit.text() != '':
+            t.LtSpiceToLatex(filenameLTspice = self.lineEdit.text(), lt_spice_directory = r'C:\Users\Ian Diaz\Documents\LTspiceXVII\lib\sym',fullExample=1,save = True)
         return
         
 if __name__ == "__main__":
