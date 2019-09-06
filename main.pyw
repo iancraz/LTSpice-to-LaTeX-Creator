@@ -5,21 +5,17 @@ from userInterface import *
 from about import *
 import sys
 
+PATH = r'C:\Users\Ian Diaz\Documents\LTspiceXVII\lib\sym'
+
 class Logic(QtWidgets.QMainWindow, Ui_mainWindow):
     def __init__(self, *args, **kwargs):
         QtWidgets.QMainWindow.__init__(self, *args, **kwargs)
         self.setupUi(self)
-
+        self.path = PATH
         self.actionAbout.triggered.connect(self.about)
         self.actionSave.triggered.connect(self.save)
         self.searchFileButton.clicked.connect(self.searchFile)
         self.goButton.clicked.connect(self.resolve)
-        # self.clearAllButton.clicked.connect(self.clearAll)
-        # self.goButton.clicked.connect(self.resolve)
-        # self.eqCreatorsList = [self.eqCreator_1, self.eqCreator_2, self.eqCreator_3, self.eqCreator_4, self.eqCreator_5,
-        #                        self.eqCreator_6]
-        # self.addButton.clicked.connect(self.addEquation)
-        # self.clearAll()
     
     def searchFile(self):
         options = QFileDialog.Options()
@@ -27,6 +23,7 @@ class Logic(QtWidgets.QMainWindow, Ui_mainWindow):
         fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
         if fileName:
             self.lineEdit.setText(fileName)
+    
     def resolve(self):
         if self.lineEdit.text() is not '':
             temp = t.LtSpiceToLatex(filenameLTspice = self.lineEdit.text(), lt_spice_directory = r'C:\Users\Ian Diaz\Documents\LTspiceXVII\lib\sym')
@@ -46,7 +43,7 @@ class Logic(QtWidgets.QMainWindow, Ui_mainWindow):
 
     def save(self):
         if self.lineEdit.text() != '':
-            t.LtSpiceToLatex(filenameLTspice = self.lineEdit.text(), lt_spice_directory = r'C:\Users\Ian Diaz\Documents\LTspiceXVII\lib\sym',fullExample=1,save = True)
+            t.LtSpiceToLatex(filenameLTspice = self.lineEdit.text(), lt_spice_directory = self.path,fullExample=1,save = True)
         return
         
 if __name__ == "__main__":
