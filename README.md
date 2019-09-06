@@ -7,8 +7,8 @@ Convert LTspice to Latex (TikZ)
 3. Latex packages: tikz, circuitikz, (amsmath)
  
 ## How to convert LTspice schematic to Latex TikZ picture?
-Double click on main.pyw
-Choose a '.asc' File
-Click 'Go!' button
+1. Double click on main.pyw
+2. Choose a '.asc' File
+3. Click 'Go!' button
 
 You can copy the text made, or you can save a '.tex' file with Ctrl+S
