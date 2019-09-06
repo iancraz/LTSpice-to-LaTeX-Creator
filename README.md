@@ -1,5 +1,5 @@
 # Convert_LTspice_to_Latex
-Convert LTspice to Latex (TikZ)
+Convert LTspice to LaTeX (TikZ)
 
 ## Setup
 1. Install Python 3
