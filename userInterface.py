@@ -57,13 +57,19 @@ class Ui_mainWindow(object):
         self.menubar.setObjectName("menubar")
         self.menuHelp = QtWidgets.QMenu(self.menubar)
         self.menuHelp.setObjectName("menuHelp")
+        self.menuFile = QtWidgets.QMenu(self.menubar)
+        self.menuFile.setObjectName("menuFile")
         mainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(mainWindow)
         self.statusbar.setObjectName("statusbar")
         mainWindow.setStatusBar(self.statusbar)
         self.actionAbout = QtWidgets.QAction(mainWindow)
         self.actionAbout.setObjectName("actionAbout")
+        self.actionSave = QtWidgets.QAction(mainWindow)
+        self.actionSave.setObjectName("actionSave")
         self.menuHelp.addAction(self.actionAbout)
+        self.menuFile.addAction(self.actionSave)
+        self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(mainWindow)
@@ -82,7 +88,10 @@ class Ui_mainWindow(object):
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">LaTex</p></body></html>"))
         self.menuHelp.setTitle(_translate("mainWindow", "Help"))
+        self.menuFile.setTitle(_translate("mainWindow", "File"))
         self.actionAbout.setText(_translate("mainWindow", "About"))
+        self.actionSave.setText(_translate("mainWindow", "Save"))
+        self.actionSave.setShortcut(_translate("mainWindow", "Ctrl+S"))
 
 
 if __name__ == "__main__":

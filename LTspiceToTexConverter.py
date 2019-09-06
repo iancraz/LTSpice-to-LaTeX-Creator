@@ -11,7 +11,7 @@ def ConvertForAllLTspiceFilesFormFolderToTEX(path='.', lt_spice_directory = r'C:
 			
 count_bauelemente = 0
 BauteileAddSpeicher = []
-def LtSpiceToLatex(saveFile = '', filenameLTspice = 'Draft.asc', lt_spice_directory = r'C:\Program Files\LTC\LTspiceXVII\lib\sym', fullExample=0):
+def LtSpiceToLatex(saveFile = '', filenameLTspice = 'Draft.asc', lt_spice_directory = r'C:\Program Files\LTC\LTspiceXVII\lib\sym', fullExample=0, save = False):
 
 	global count_bauelemente
 	global BauteileAddSpeicher
@@ -436,6 +436,7 @@ def LtSpiceToLatex(saveFile = '', filenameLTspice = 'Draft.asc', lt_spice_direct
 	f = open(saveFile, "r")
 	temp = f.read()
 	f.close()
-	os.remove(saveFile)
+	if save is not True:
+		os.remove(saveFile)
 	print('Congratulations. The run was successful.')
 	return temp
