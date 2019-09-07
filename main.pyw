@@ -25,7 +25,7 @@ class Logic(QtWidgets.QMainWindow, Ui_mainWindow):
             self.lineEdit.setText(fileName)
     
     def resolve(self):
-        if self.lineEdit.text() is not '':
+        if self.lineEdit.text() is not '' and self.lineEdit.text()[-3:] == 'asc':
             temp = t.LtSpiceToLatex(filenameLTspice = self.lineEdit.text(), lt_spice_directory = r'C:\Users\Ian Diaz\Documents\LTspiceXVII\lib\sym')
             _translate = QtCore.QCoreApplication.translate
             temp = temp.replace('\n','<br>')
@@ -42,7 +42,7 @@ class Logic(QtWidgets.QMainWindow, Ui_mainWindow):
         self.window.show()
 
     def save(self):
-        if self.lineEdit.text() is not '':
+        if self.lineEdit.text() is not '' and self.lineEdit.text()[-3:] == 'asc':
             t.LtSpiceToLatex(filenameLTspice = self.lineEdit.text(), lt_spice_directory = self.path,fullExample=1,save = True)
         return
         
