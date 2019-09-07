@@ -20,7 +20,7 @@ class Logic(QtWidgets.QMainWindow, Ui_mainWindow):
     def searchFile(self):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
-        fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
+        fileName, _ = QFileDialog.getOpenFileName(self,"File Selection", "","All Files (*);;Python Files (*.py)", options=options)
         if fileName:
             self.lineEdit.setText(fileName)
     
@@ -42,7 +42,7 @@ class Logic(QtWidgets.QMainWindow, Ui_mainWindow):
         self.window.show()
 
     def save(self):
-        if self.lineEdit.text() != '':
+        if self.lineEdit.text() is not '':
             t.LtSpiceToLatex(filenameLTspice = self.lineEdit.text(), lt_spice_directory = self.path,fullExample=1,save = True)
         return
         
