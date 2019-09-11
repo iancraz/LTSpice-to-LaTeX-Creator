@@ -17,7 +17,6 @@ class Logic(QtWidgets.QMainWindow, Ui_mainWindow):
         self.searchFileButton.clicked.connect(self.searchFile)
         self.goButton.clicked.connect(self.resolve)
         self.copyButton.clicked.connect(self.copyToClipboard)
-        self.text = ""
     
     def searchFile(self):
         options = QFileDialog.Options()
@@ -64,10 +63,10 @@ class Logic(QtWidgets.QMainWindow, Ui_mainWindow):
         return
     
     def copyToClipboard(self):
-        if self.text != "":
+        if self.latexTextEdit.toPlainText() != "":
             cb = QtWidgets.QApplication.clipboard()
             cb.clear(mode=cb.Clipboard )
-            cb.setText(self.text, mode=cb.Clipboard)
+            cb.setText(self.latexTextEdit.toPlainText(), mode=cb.Clipboard)
         return
         
 if __name__ == "__main__":
