@@ -55,6 +55,9 @@ class Ui_mainWindow(object):
         self.label_3.setPixmap(QtGui.QPixmap("resources/Logo.png"))
         self.label_3.setScaledContents(True)
         self.label_3.setObjectName("label_3")
+        self.copyButton = QtWidgets.QPushButton(self.centralwidget)
+        self.copyButton.setGeometry(QtCore.QRect(300, 200, 201, 23))
+        self.copyButton.setObjectName("copyButton")
         mainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(mainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
@@ -90,9 +93,20 @@ class Ui_mainWindow(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">LaTex</p></body></html>"))
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.copyButton.setText(_translate("mainWindow", "Copy to clipboard"))
         self.menuHelp.setTitle(_translate("mainWindow", "Help"))
         self.menuFile.setTitle(_translate("mainWindow", "File"))
         self.actionAbout.setText(_translate("mainWindow", "About"))
         self.actionSave.setText(_translate("mainWindow", "Save"))
         self.actionSave.setShortcut(_translate("mainWindow", "Ctrl+S"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    mainWindow = QtWidgets.QMainWindow()
+    ui = Ui_mainWindow()
+    ui.setupUi(mainWindow)
+    mainWindow.show()
+    sys.exit(app.exec_())

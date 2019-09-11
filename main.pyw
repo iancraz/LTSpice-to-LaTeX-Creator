@@ -16,6 +16,8 @@ class Logic(QtWidgets.QMainWindow, Ui_mainWindow):
         self.actionSave.triggered.connect(self.save)
         self.searchFileButton.clicked.connect(self.searchFile)
         self.goButton.clicked.connect(self.resolve)
+        self.copyButton.clicked.connect(self.copyToClipboard)
+        self.text = ""
     
     def searchFile(self):
         options = QFileDialog.Options()
@@ -28,6 +30,7 @@ class Logic(QtWidgets.QMainWindow, Ui_mainWindow):
         if self.lineEdit.text() is not '' and self.lineEdit.text()[-3:] == 'asc':
             temp = t.LtSpiceToLatex(filenameLTspice = self.lineEdit.text(), lt_spice_directory = r'C:\Users\Ian Diaz\Documents\LTspiceXVII\lib\sym')
             _translate = QtCore.QCoreApplication.translate
+            self.text = temp
             temp = temp.replace('\n','<br>')
             self.latexTextEdit.setHtml(_translate("mainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
             "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -58,6 +61,13 @@ class Logic(QtWidgets.QMainWindow, Ui_mainWindow):
             self.msg.setInformativeText("The file you have chosen is not '.asc', please choose a correct file.")
             self.msg.setWindowTitle("Error")
             self.msg.exec_()
+        return
+    
+    def copyToClipboard(self):
+        if self.text != "":
+            cb = QtWidgets.QApplication.clipboard()
+            cb.clear(mode=cb.Clipboard )
+            cb.setText(self.text, mode=cb.Clipboard)
         return
         
 if __name__ == "__main__":
